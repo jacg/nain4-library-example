@@ -9,14 +9,14 @@ test PATTERN *FLAGS: install-tests
   sh install/nain4-test/run-each-test-in-separate-process.sh {{PATTERN}} {{FLAGS}}
 
 install-lib:
-  meson setup      build src
-  meson compile -C build
-  meson install -C build
+  meson setup      build/lib src
+  meson compile -C build/lib
+  meson install -C build/lib
 
 install-tests: install-lib
-  meson setup      build test
-  meson compile -C build
-  meson install -C build
+  meson setup      build/test test
+  meson compile -C build/test
+  meson install -C build/test
 
 clean:
   fd --no-ignore "^build$"   --exec rm -rf {}
