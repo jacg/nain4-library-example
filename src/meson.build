@@ -9,14 +9,8 @@ project( 'CHANGEME-library-name'
                            ]
        )
 
-n4 = dependency( 'nain4'
-               , method  : 'pkg-config'
-               , required: true
-               )
-
-g4 = dependency( 'Geant4'
-               , method  : 'cmake'
-               , required: true
+n4 = dependency('nain4' , method: 'pkg-config', required: true)
+g4 = dependency('Geant4', method: 'cmake'     , required: true
                , components: ['ui_all', 'vis_all']
                , modules : [ 'Geant4::G4ptl'              , 'Geant4::G4analysis'    , 'Geant4::G4digits_hits'
                            , 'Geant4::G4error_propagation', 'Geant4::G4event'       , 'Geant4::G4tools'

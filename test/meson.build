@@ -11,14 +11,12 @@ project( 'CHANGEME-library-name-tests'
 
 install_prefix = get_option('prefix')
 
-CHANGEME = dependency( 'CHANGEME-library-name-must-match-AAA-in-other-meson-file'
-                     , method  : 'pkg-config'
-                     , required: true
-                     )
-
-c2 = dependency('catch2', method : 'pkg-config', required: true)
-n4 = dependency('nain4' , method : 'pkg-config', required: true)
-g4 = dependency('Geant4', method : 'cmake'     , required: true
+CHANGEME \
+   = dependency('CHANGEME-library-name-must-match-AAA-in-other-meson-file'
+                        , method: 'pkg-config', required: true)
+c2 = dependency('catch2', method: 'pkg-config', required: true)
+n4 = dependency('nain4' , method: 'pkg-config', required: true)
+g4 = dependency('Geant4', method: 'cmake'     , required: true
                , components: ['ui_all', 'vis_all']
                , modules : [ 'Geant4::G4ptl'              , 'Geant4::G4analysis'    , 'Geant4::G4digits_hits'
                            , 'Geant4::G4error_propagation', 'Geant4::G4event'       , 'Geant4::G4tools'
