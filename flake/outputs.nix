@@ -33,6 +33,11 @@
         nain4.packages.nain4
         nain4.packages.clang_16
       ];
+      shellHook = ''
+          export CHANGEME_LIB=$PWD/install/CHANGEME-library-name/lib
+          export LD_LIBRARY_PATH=$CHANGEME_LIB:$LD_LIBRARY_PATH;
+          export PKG_CONFIG_PATH=$CHANGEME_LIB/pkgconfig:$PKG_CONFIG_PATH;
+      '';
     };
 
   }

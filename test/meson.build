@@ -39,17 +39,18 @@ CHANGEME_test_sources = [ 'catch2-main.cc'
                         , 'test-CHANGEME.cc'
                         ]
 
-g4_include = g4.get_variable(cmake    : 'Geant4_INCLUDE_DIRS')
-n4_include = n4.get_variable(pkgconfig: 'includedir'         )
+      g4_include = g4      .get_variable(cmake    : 'Geant4_INCLUDE_DIRS')
+      n4_include = n4      .get_variable(pkgconfig: 'includedir'         )
+CHANGEME_include = CHANGEME.get_variable(pkgconfig: 'includedir'         )
 
 test_executable = 'CHANGEME-test'
 
-nain4_test_exe = executable( test_executable
-                           , nain4_test_sources
-                           , include_directories: [nain4_test_include, nain4_include, geant4_include]
-                           , dependencies       : nain4_test_deps
-                           , install            : true
-                           )
+executable( test_executable
+          , CHANGEME_test_sources
+          , include_directories: [CHANGEME_test_include, n4_include, g4_include]
+          , dependencies       : CHANGEME_test_deps
+          , install            : true
+          )
 
 conf_data = configuration_data({
   'install_prefix'  : install_prefix,
@@ -57,7 +58,7 @@ conf_data = configuration_data({
 })
 
 configure_file(
-  input         : 'run-each-test-FUCK-IT-UP-in-separate-process.sh.in',
+  input         : 'run-each-test-in-separate-process.sh.in',
   output        : 'run-each-test-in-separate-process.sh',
   configuration : conf_data,
   install       : true,

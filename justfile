@@ -6,7 +6,7 @@ default:
   just test ''
 
 test PATTERN *FLAGS: install-tests
-  sh install/nain4-test/run-each-test-in-separate-process.sh {{PATTERN}} {{FLAGS}}
+  sh install/CHANGEME-library-name-test/run-each-test-in-separate-process.sh {{PATTERN}} {{FLAGS}}
 
 install-lib:
   meson setup      build/CHANGEME-library-name src
