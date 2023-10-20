@@ -6,6 +6,6 @@ namespace CHANGEME {
 
 int add(int, int);
 
-//G4PVPlacement* example_geometry();
+G4PVPlacement* example_geometry();
 
 } // namespace abc
